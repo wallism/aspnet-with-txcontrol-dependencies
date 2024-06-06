@@ -12,3 +12,5 @@ COPY Fonts C:/Windows/Fonts/
 # In code, Fonts need to be added in App Startup with Fonts.AddFontResource
 # Fonts is a helper class taken from https://www.textcontrol.com/blog/2020/01/27/deploying-tx-text-control-to-azure-app-services/
 
+COPY bin64 C:/Dependencies/TxTextControl/
+
