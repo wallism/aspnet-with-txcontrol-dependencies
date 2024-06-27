@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+# 2022 doesn't work on a win10 host
+
+# note if you get this error: failed to copy files: failed to copy directory: remove \\?\Volume{fb6326db-9c58-4c35-bdca-4754552cd4dd}\Windows\Fonts\lucon.ttf: Access is denied.
+# just delete lucon.ttf from your copied Fonts dir
+COPY Fonts C:/Windows/Fonts/
+# In code, Fonts need to be added in App Startup with Fonts.AddFontResource
+# Fonts is a helper class taken from https://www.textcontrol.com/blog/2020/01/27/deploying-tx-text-control-to-azure-app-services/
