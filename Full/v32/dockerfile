@@ -1,0 +1,5 @@
+FROM wallism/aspnet-with-txcontrol-dependencies:4.8-20240529
+
+COPY ./SyncService/ /SyncService/
+WORKDIR /SyncService/
+RUN & ./txregwebsvr.exe /i /e /w
