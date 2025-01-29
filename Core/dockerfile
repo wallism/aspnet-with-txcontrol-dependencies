@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-windowsservercore-ltsc2019
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-windowsservercore-ltsc2022
 # 2022 doesn't work on a win10 host
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -12,5 +12,6 @@ COPY Fonts C:/Windows/Fonts/
 # In code, Fonts need to be added in App Startup with Fonts.AddFontResource
 # Fonts is a helper class taken from https://www.textcontrol.com/blog/2020/01/27/deploying-tx-text-control-to-azure-app-services/
 
+# bin64 should have 2 nuget packages and have this structure: \Dependencies\TxTextControl\NuGetPackages
 COPY bin64 C:/Dependencies/TxTextControl/
 

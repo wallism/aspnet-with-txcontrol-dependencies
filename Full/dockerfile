@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
 # 2022 doesn't work on a win10 host
 
 # this is an old version and does not work, need the latest version for the latest TXControl
