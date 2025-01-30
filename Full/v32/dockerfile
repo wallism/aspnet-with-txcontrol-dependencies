@@ -1,4 +1,4 @@
-FROM wallism/aspnet-with-txcontrol-dependencies:4.8-20240529
+FROM lpcontainerregistry.azurecr.io/aspnet-with-txcontrol-dependencies:4.8-windowsservercore-ltsc2022-20250130
 
 COPY ./SyncService/ /SyncService/
 WORKDIR /SyncService/
