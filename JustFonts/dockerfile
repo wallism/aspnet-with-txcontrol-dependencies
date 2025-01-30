@@ -6,3 +6,11 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
 COPY Fonts C:/Windows/Fonts/
 # In code, Fonts need to be added in App Startup with Fonts.AddFontResource
 # Fonts is a helper class taken from https://www.textcontrol.com/blog/2020/01/27/deploying-tx-text-control-to-azure-app-services/
+
+# The reports code does the runtime font registration as above, but it doesn't seem to work as accented characters are not appearing. 
+# Therefore, add the main fonts used in reports to the registry as well
+RUN reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" /v "Arial (TrueType)" /t REG_SZ /d "Arial.ttf" /f && \
+    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" /v "Arial Bold (TrueType)" /t REG_SZ /d "ArialBold.ttf" /f && \
+    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" /v "Times New Roman (TrueType)" /t REG_SZ /d "Times.ttf" /f && \
+    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" /v "Times New Roman Bold (TrueType)" /t REG_SZ /d "Timesbd.ttf" /f
+    
